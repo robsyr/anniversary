@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anniversary Card</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="captcha-screen" class="screen active">
+        <div class="captcha-container">
+            <h1>🤖 Verification Required</h1>
+            <p class="captcha-instruction">Select all images of your <strong>favorite boyfriend</strong></p>
+            
+            <div class="image-grid" id="imageGrid">
+                <!-- Add your images here - replace src with actual image paths -->
+                <div class="image-box" data-correct="true">
+                    <img src="pictures/boyfriend1.jpg" alt="Image 1">
+                    <div class="checkbox"></div>
+                </div>
+                <div class="image-box" data-correct="true">
+                    <img src="pictures/boyfriend2.jpg" alt="Image 2">
+                    <div class="checkbox"></div>
+                </div>
+                <div class="image-box" data-correct="true">
+                    <img src="pictures/boyfriend3.jpg" alt="Image 3">
+                    <div class="checkbox"></div>
+                </div>
+                <div class="image-box" data-correct="true">
+                    <img src="pictures/boyfriend4.jpg" alt="Image 4">
+                    <div class="checkbox"></div>
+                </div>
+                <div class="image-box" data-correct="true">
+                    <img src="pictures/boyfriend5.jpg" alt="Image 5">
+                    <div class="checkbox"></div>
+                </div>
+                <div class="image-box" data-correct="true">
+                    <img src="pictures/boyfriend6.jpg" alt="Image 6">
+                    <div class="checkbox"></div>
+                </div>
+                <div class="image-box" data-correct="true">
+                    <img src="pictures/boyfriend7.jpg" alt="Image 7">
+                    <div class="checkbox"></div>
+                </div>
+                <div class="image-box" data-correct="true">
+                    <img src="pictures/boyfriend8.jpg" alt="Image 8">
+                    <div class="checkbox"></div>
+                </div>
+                <div class="image-box" data-correct="true">
+                    <img src="pictures/boyfriend9.jpg" alt="Image 9">
+                    <div class="checkbox"></div>
+                </div>
+            </div>
+            
+            <p id="errorMessage" class="error-message"></p>
+            <button id="verifyBtn" class="verify-btn">Verify</button>
+        </div>
+    </div>
+
+    <div id="letter-screen" class="screen">
+        <img src="decoration-left.png" class="top-left-decoration" alt="">
+        <img src="decoration-right.png" class="top-right-decoration" alt="">
+        
+        <div class="title">
+            <h1>The Leony</h1>
+            
+            <h2>
+                Du hältst gerade das erfolgreich abgeschlossene Playbook für diesen Tag in den Händen. Willkommen zu ‚The Leony'. Damit dieser Moment, wie du jetzt hier stehst, überhaupt möglich war, mussten folgende Schritte präzise ausgeführt werden:
+            </h2>
+            
+            <h2>
+                <strong>Schritt 1:</strong> Gaukle vollkommenes Desinteresse vor. Sobald das Thema Jahrestag im Vorfeld aufkommt: Weiche konsequent aus. Wenn sie fragt, was wir essen wollen oder ob wir Pläne haben, bring das Gespräch sofort auf belanglose Themen. Das Ziel: Totale Verwirrung über meinen Planungsstatus.
+            </h2>
+            
+            <h2>
+                <strong>Schritt 2:</strong> Schraube die Erwartungen am Morgen auf den Nullpunkt. Sende eine „Guten Morgen"-Nachricht ohne jegliche Emotion. Kein Herz, kein Glückwunsch. Nur trockener Text. Das bricht den Widerstand und lässt die Hoffnung auf eine Überraschung zum ersten Mal schwinden.
+            </h2>
+            
+            <h2>
+                <strong>Schritt 3:</strong> Etabliere die pragmatische Distanz. Nutze das Telefonat zwischendurch nur für Logistik: „Wann kommst du an?", „Bist du pünktlich?". Kein Wort der Vorfreude. Vermittle das Gefühl, dass du nur den Zeitplan im Kopf hast, nicht den Anlass.
+            </h2>
+            
+            <h2>
+                <strong>Schritt 4:</strong> Führe den finalen Gnadenstoß aus – Die Schlüsselübergabe. Mime den gestressten, überarbeiteten Partner. Ein flüchtiger Kuss, ein schneller Abschied. Lass sie in dem Glauben, dass du den Tag komplett vergessen hast oder er dir egal ist. Dies ist der kritische Punkt des Plays – die Täuschung ist nun vollkommen.
+            </h2>
+            
+            <h2>
+                <strong>Schritt 5:</strong> Leite die Wiedergutmachung ein. Wenn sie die Tür öffnet, muss das Wellness-Headquarter bereitstehen. Die Wärmflasche, die Dackellatschen (als Symbol für unser gemeinsames Zuhause) und der Kinderpinguin sind die ersten Anzeichen, dass alles eine Lüge war.
+            </h2>
+            
+            <h2>
+                <strong>Schritt 6:</strong> Präsentiere die Belohnung. Platziere den Wein vom Mauerwinzer und die Menükarte prominent. Gib ihr das Versprechen: Sobald der Laptop um 20:00 Uhr zuklappt, gehört die Welt nur noch euch beiden.
+            </h2>
+            
+            <h2>
+                <strong>Schritt 7:</strong> Realisiere, wie sehr ich dich liebe. Verstehe, dass jeder dieser Schritte nur einem Zweck diente: Diesen einen Moment der Überraschung für dich zu kreieren, weil du mir alles bedeutest.
+            </h2>
+            
+            <p class="sender">
+                Ich liebe dich!
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

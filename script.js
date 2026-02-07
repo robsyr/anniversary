@@ -15,22 +15,30 @@ function attachClickListeners() {
     imageBoxes.forEach(box => {
         let touchMoved = false;
         let touchStartY = 0;
+        let touchStartX = 0;
+        let touchStartTime = 0;
         
         box.addEventListener('touchstart', (e) => {
             touchMoved = false;
             touchStartY = e.touches[0].clientY;
+            touchStartX = e.touches[0].clientX;
+            touchStartTime = Date.now();
         });
         
         box.addEventListener('touchmove', (e) => {
             const touchCurrentY = e.touches[0].clientY;
-            // If moved more than 10px, consider it a scroll
-            if (Math.abs(touchCurrentY - touchStartY) > 10) {
+            const touchCurrentX = e.touches[0].clientX;
+            // If moved more than 5px in any direction, consider it a scroll
+            if (Math.abs(touchCurrentY - touchStartY) > 5 || 
+                Math.abs(touchCurrentX - touchStartX) > 5) {
                 touchMoved = true;
             }
         });
         
         box.addEventListener('touchend', (e) => {
-            if (!touchMoved) {
+            const touchDuration = Date.now() - touchStartTime;
+            // Only register as click if: no movement AND touch was quick (< 300ms)
+            if (!touchMoved && touchDuration < 300) {
                 e.preventDefault();
                 box.classList.toggle('selected');
                 errorMessage.textContent = '';

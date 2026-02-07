@@ -13,10 +13,14 @@ function shuffleImages() {
 function attachClickListeners() {
     const imageBoxes = document.querySelectorAll('.image-box');
     imageBoxes.forEach(box => {
-        box.addEventListener('click', () => {
+        const toggleSelection = (e) => {
+            e.preventDefault();
             box.classList.toggle('selected');
             errorMessage.textContent = '';
-        });
+        };
+        
+        box.addEventListener('touchend', toggleSelection);
+        box.addEventListener('click', toggleSelection);
     });
 }
 
@@ -45,7 +49,7 @@ verifyBtn.addEventListener('click', () => {
         captchaScreen.classList.remove('active');
         letterScreen.classList.add('active');
     } else {
-        errorMessage.textContent = '❌ Try again! Select ALL images of your favorite boyfriend.';
+        errorMessage.textContent = '❌ Are you sure???';
         const imageBoxes = document.querySelectorAll('.image-box');
         imageBoxes.forEach(box => box.classList.remove('selected'));
         shuffleImages();

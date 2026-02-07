@@ -13,17 +13,25 @@ function shuffleImages() {
 function attachClickListeners() {
     const imageBoxes = document.querySelectorAll('.image-box');
     imageBoxes.forEach(box => {
-        let touchStartTime = 0;
+        let touchMoved = false;
+        let touchStartY = 0;
         
         box.addEventListener('touchstart', (e) => {
-            touchStartTime = Date.now();
+            touchMoved = false;
+            touchStartY = e.touches[0].clientY;
+        });
+        
+        box.addEventListener('touchmove', (e) => {
+            const touchCurrentY = e.touches[0].clientY;
+            // If moved more than 10px, consider it a scroll
+            if (Math.abs(touchCurrentY - touchStartY) > 10) {
+                touchMoved = true;
+            }
         });
         
         box.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            const touchDuration = Date.now() - touchStartTime;
-            // Only toggle if touch was brief (not a scroll)
-            if (touchDuration < 200) {
+            if (!touchMoved) {
+                e.preventDefault();
                 box.classList.toggle('selected');
                 errorMessage.textContent = '';
             }

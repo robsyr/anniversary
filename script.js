@@ -13,14 +13,26 @@ function shuffleImages() {
 function attachClickListeners() {
     const imageBoxes = document.querySelectorAll('.image-box');
     imageBoxes.forEach(box => {
-        const toggleSelection = (e) => {
+        let touchStartTime = 0;
+        
+        box.addEventListener('touchstart', (e) => {
+            touchStartTime = Date.now();
+        });
+        
+        box.addEventListener('touchend', (e) => {
             e.preventDefault();
+            const touchDuration = Date.now() - touchStartTime;
+            // Only toggle if touch was brief (not a scroll)
+            if (touchDuration < 200) {
+                box.classList.toggle('selected');
+                errorMessage.textContent = '';
+            }
+        });
+        
+        box.addEventListener('click', (e) => {
             box.classList.toggle('selected');
             errorMessage.textContent = '';
-        };
-        
-        box.addEventListener('touchend', toggleSelection);
-        box.addEventListener('click', toggleSelection);
+        });
     });
 }
 

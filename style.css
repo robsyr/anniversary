@@ -60,7 +60,12 @@ body {
     border: 3px solid transparent;
     border-radius: 10px;
     overflow: hidden;
-    transition: all 0.3s;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.image-box:active {
+    transform: scale(0.95);
 }
 
 .image-box:hover {
@@ -69,6 +74,7 @@ body {
 
 .image-box.selected {
     border-color: #674ea7;
+    box-shadow: 0 0 0 3px rgba(103, 78, 167, 0.3);
 }
 
 .image-box img {
